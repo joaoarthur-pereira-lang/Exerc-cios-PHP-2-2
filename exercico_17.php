@@ -7,3 +7,26 @@ function limparEspacos($texto) {
 function contarCaracteres($texto) {
     return strlen($texto);
 }
+
+function contarPalavras($texto) {
+    $palavras = explode(" ", limparEspacos($texto));
+    return count($palavras);
+}
+
+function contarFrases($texto) {
+    $frases = explode(".", $texto);
+    return count($frases) - 1;
+}
+
+function maiorPalavra($texto) {
+    $palavras = explode(" ", limparEspacos($texto));
+    $maior = "";
+
+    foreach ($palavras as $palavra) {
+        if (strlen($palavra) > strlen($maior)) {
+            $maior = $palavra;
+        }
+    }
+
+    return $maior;
+}
