@@ -105,3 +105,45 @@ function horariosDuplicados($agenda) {
 
     return false;
 }
+
+function organizarAgenda($agenda, $paciente) {
+    $resultado = [];
+
+    $resultado["total"] = quantidadeConsultas($agenda);
+    $resultado["pacientes"] = pacientesDiferentes($agenda);
+    $resultado["especialidades"] = contarEspecialidades($agenda);
+    $resultado["primeiro"] = primeiroAtendimento($agenda);
+    $resultado["ultimo"] = ultimoAtendimento($agenda);
+    $resultado["agenda"] = ordenarAgenda($agenda);
+    $resultado["pesquisa"] = pesquisarPaciente($agenda, $paciente);
+    $resultado["duplicados"] = horariosDuplicados($agenda);
+
+    return $resultado;
+}
+
+$agenda = [
+    [
+        "paciente" => "João",
+        "especialidade" => "Cardiologia",
+        "data" => "17/09/2026",
+        "horario" => "08:00"
+    ],
+    [
+        "paciente" => "Maria",
+        "especialidade" => "Dermatologia",
+        "data" => "17/09/2026",
+        "horario" => "10:00"
+    ],
+    [
+        "paciente" => "Pedro",
+        "especialidade" => "Cardiologia",
+        "data" => "17/09/2026",
+        "horario" => "09:00"
+    ],
+    [
+        "paciente" => "João",
+        "especialidade" => "Ortopedia",
+        "data" => "17/09/2026",
+        "horario" => "11:00"
+    ]
+];
