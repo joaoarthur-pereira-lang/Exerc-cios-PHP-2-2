@@ -1,6 +1,6 @@
 <?php 
 
-function contarMaiusculas(senha) {
+function contarMaiusculas($senha) {
     let total = 0;
 
     for (let i = 0; i < senha.length; i++) {
@@ -98,7 +98,7 @@ function analisarSenha(senha) {
     resultado.push(contarEspeciais(senha));
     resultado.push(senha.length);
     resultado.push(classificarSenha(senha));
-    
+
     return resultado;
 }
 
