@@ -104,3 +104,6 @@ function analisarSenha($senha) {
 
 console.log(analisarSenha("Senha@123"));
 
+
+?>
+
