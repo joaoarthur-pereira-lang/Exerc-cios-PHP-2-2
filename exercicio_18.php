@@ -147,3 +147,50 @@ $agenda = [
         "horario" => "11:00"
     ]
 ];
+
+$nome = "João";
+
+$resultado = organizarAgenda($agenda, $nome);
+
+echo "Total de consultas: " . $resultado["total"] . "<br>";
+echo "Pacientes diferentes: " . $resultado["pacientes"] . "<br>";
+
+echo "<h3>Consultas por especialidade:</h3>";
+
+foreach ($resultado["especialidades"] as $especialidade => $quantidade) {
+    echo $especialidade . ": " . $quantidade . "<br>";
+}
+
+echo "<h3>Primeiro atendimento:</h3>";
+echo $resultado["primeiro"]["paciente"] . " - ";
+echo $resultado["primeiro"]["horario"] . "<br>";
+
+echo "<h3>Último atendimento:</h3>";
+echo $resultado["ultimo"]["paciente"] . " - ";
+echo $resultado["ultimo"]["horario"] . "<br>";
+
+echo "<h3>Agenda ordenada:</h3>";
+
+foreach ($resultado["agenda"] as $consulta) {
+    echo $consulta["horario"] . " - ";
+    echo $consulta["paciente"] . " - ";
+    echo $consulta["especialidade"] . "<br>";
+}
+
+echo "<h3>Pesquisa do paciente:</h3>";
+
+foreach ($resultado["pesquisa"] as $consulta) {
+    echo $consulta["paciente"] . " - ";
+    echo $consulta["especialidade"] . " - ";
+    echo $consulta["horario"] . "<br>";
+}
+
+echo "<h3>Horários duplicados:</h3>";
+
+if ($resultado["duplicados"]) {
+    echo "Existem horários duplicados.";
+} else {
+    echo "Não existem horários duplicados.";
+}
+
+?>
