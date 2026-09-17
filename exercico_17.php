@@ -43,3 +43,18 @@ function menorPalavra($texto) {
 
     return $menor;
 }
+
+function palavrasRepetidas($texto) {
+    $palavras = explode(" ", limparEspacos(strtolower($texto)));
+    $contagem = array_count_values($palavras);
+
+    $total = 0;
+
+    foreach ($contagem as $quantidade) {
+        if ($quantidade > 1) {
+            $total++;
+        }
+    }
+
+    return $total;
+}
