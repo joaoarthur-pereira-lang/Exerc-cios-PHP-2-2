@@ -89,3 +89,19 @@ function pesquisarPaciente($agenda, $nome) {
 
     return $resultado;
 }
+
+function horariosDuplicados($agenda) {
+    $horarios = [];
+
+    foreach ($agenda as $consulta) {
+        $horario = $consulta["horario"];
+
+        if (isset($horarios[$horario])) {
+            return true;
+        }
+
+        $horarios[$horario] = 1;
+    }
+
+    return false;
+}
