@@ -51,3 +51,41 @@ function contarEspeciais(senha) {
 
     return total;
 }
+
+function classificarSenha(senha) {
+    let pontos = 0;
+
+    if (senha.length >= 8) {
+        pontos++;
+    }
+
+    if (contarMaiusculas(senha) > 0) {
+        pontos++;
+    }
+
+    if (contarMinusculas(senha) > 0) {
+        pontos++;
+    }
+
+    if (contarNumeros(senha) > 0) {
+        pontos++;
+    }
+
+    if (contarEspeciais(senha) > 0) {
+        pontos++;
+    }
+
+    if (pontos <= 2) {
+        return "Fraca";
+
+    } else if (pontos == 3) {
+        return "Média";
+
+    } else if (pontos == 4) {
+        return "Forte";
+
+    } else {
+        return "Muito Forte";
+    }
+}
+
