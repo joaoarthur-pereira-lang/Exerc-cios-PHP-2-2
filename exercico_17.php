@@ -30,3 +30,16 @@ function maiorPalavra($texto) {
 
     return $maior;
 }
+
+function menorPalavra($texto) {
+    $palavras = explode(" ", limparEspacos($texto));
+    $menor = $palavras[0];
+
+    foreach ($palavras as $palavra) {
+        if (strlen($palavra) < strlen($menor)) {
+            $menor = $palavra;
+        }
+    }
+
+    return $menor;
+}
