@@ -1,109 +1,114 @@
 <?php 
 
 function contarMaiusculas($senha) {
-    let total = 0;
+    $total = 0;
 
-    for (let i = 0; i < senha.length; i++) {
-        if (senha[i] >= "A" && senha[i] <= "Z") {
-            total++;
+    for ($i = 0; $i < strlen($senha); $i++) {
+        if ($senha[$i] >= "A" && $senha[$i] <= "Z") {
+            $total++;
         }
     }
 
-    return total;
+    return $total;
 }
 
 function contarMinusculas($senha) {
-    let total = 0;
+    $total = 0;
 
-    for (let i = 0; i < senha.length; i++) {
-        if (senha[i] >= "a" && senha[i] <= "z") {
-            total++;
+    for ($i = 0; $i < strlen($senha); $i++) {
+        if ($senha[$i] >= "a" && $senha[$i] <= "z") {
+            $total++;
         }
     }
 
-    return total;
+    return $total;
 }
 
 function contarNumeros($senha) {
-    let total = 0;
+    $total = 0;
 
-    for (let i = 0; i < senha.length; i++) {
-        if (senha[i] >= "0" && senha[i] <= "9") {
-            total++;
+    for ($i = 0; $i < strlen($senha); $i++) {
+        if ($senha[$i] >= "0" && $senha[$i] <= "9") {
+            $total++;
         }
     }
 
-    return total;
+    return $total;
 }
 
 function contarEspeciais($senha) {
-    let total = 0;
+    $total = 0;
 
-    for (let i = 0; i < senha.length; i++) {
+    for ($i = 0; $i < strlen($senha); $i++) {
         if (
-            !(senha[i] >= "A" && senha[i] <= "Z") &&
-            !(senha[i] >= "a" && senha[i] <= "z") &&
-            !(senha[i] >= "0" && senha[i] <= "9")
+            !($senha[$i] >= "A" && $senha[$i] <= "Z") &&
+            !($senha[$i] >= "a" && $senha[$i] <= "z") &&
+            !($senha[$i] >= "0" && $senha[$i] <= "9")
         ) {
-            total++;
+            $total++;
         }
     }
 
-    return total;
+    return $total;
 }
 
 function classificarSenha($senha) {
-    let pontos = 0;
+    $pontos = 0;
 
-    if ($senha.length >= 8) {
-        pontos++;
+    if (strlen($senha) >= 8) {
+        $pontos++;
     }
 
     if (contarMaiusculas($senha) > 0) {
-        pontos++;
+        $pontos++;
     }
 
-    if (contarMinusculas(senha) > 0) {
-        pontos++;
+    if (contarMinusculas($senha) > 0) {
+        $pontos++;
     }
 
     if (contarNumeros($senha) > 0) {
-        pontos++;
+        $pontos++;
     }
 
     if (contarEspeciais($senha) > 0) {
-        pontos++;
+        $pontos++;
     }
 
-    if (pontos <= 2) {
+    if ($pontos <= 2) {
         return "Fraca";
-
-    } else if (pontos == 3) {
+    } elseif ($pontos == 3) {
         return "Média";
-
-    } else if (pontos == 4) {
+    } elseif ($pontos == 4) {
         return "Forte";
-
     } else {
         return "Muito Forte";
     }
 }
 
 function analisarSenha($senha) {
-    let resultado = [];
+    $resultado = [];
 
-    resultado.push(contarMaiusculas(senha));
-    resultado.push(contarMinusculas(senha));
-    resultado.push(contarNumeros(senha));
-    resultado.push(contarEspeciais(senha));
-    resultado.push(senha.length);
-    resultado.push(classificarSenha(senha));
+    $resultado[] = contarMaiusculas($senha);
+    $resultado[] = contarMinusculas($senha);
+    $resultado[] = contarNumeros($senha);
+    $resultado[] = contarEspeciais($senha);
+    $resultado[] = strlen($senha);
+    $resultado[] = classificarSenha($senha);
 
-    return resultado;
+    return $resultado;
 }
 
-console.log(analisarSenha("Senha@123"));
+$senha = "Senha@123";
 
+$resultado = analisarSenha($senha);
+
+echo "Maiúsculas: " . $resultado[0] . "<br>";
+echo "Minúsculas: " . $resultado[1] . "<br>";
+echo "Números: " . $resultado[2] . "<br>";
+echo "Caracteres especiais: " . $resultado[3] . "<br>";
+echo "Tamanho: " . $resultado[4] . "<br>";
+echo "Segurança: " . $resultado[5];
 
 ?>
 
