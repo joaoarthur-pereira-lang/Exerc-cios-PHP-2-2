@@ -31,3 +31,17 @@ function contarEspecialidades($agenda) {
 
     return $especialidades;
 }
+
+function ordenarAgenda($agenda) {
+    for ($i = 0; $i < count($agenda); $i++) {
+        for ($j = $i + 1; $j < count($agenda); $j++) {
+            if ($agenda[$i]["horario"] > $agenda[$j]["horario"]) {
+                $temp = $agenda[$i];
+                $agenda[$i] = $agenda[$j];
+                $agenda[$j] = $temp;
+            }
+        }
+    }
+
+    return $agenda;
+}
