@@ -58,3 +58,16 @@ function palavrasRepetidas($texto) {
 
     return $total;
 }
+
+function palavrasFrequentes($texto) {
+    $palavras = explode(" ", limparEspacos(strtolower($texto)));
+    $contagem = array_count_values($palavras);
+
+    arsort($contagem);
+
+    return array_slice($contagem, 0, 5);
+}
+
+function formatarTexto($texto) {
+    return ucwords(strtolower(limparEspacos($texto)));
+}
