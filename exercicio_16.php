@@ -12,7 +12,7 @@ function contarMaiusculas($senha) {
     return total;
 }
 
-function contarMinusculas(senha) {
+function contarMinusculas($senha) {
     let total = 0;
 
     for (let i = 0; i < senha.length; i++) {
@@ -24,7 +24,7 @@ function contarMinusculas(senha) {
     return total;
 }
 
-function contarNumeros(senha) {
+function contarNumeros($senha) {
     let total = 0;
 
     for (let i = 0; i < senha.length; i++) {
@@ -36,7 +36,7 @@ function contarNumeros(senha) {
     return total;
 }
 
-function contarEspeciais(senha) {
+function contarEspeciais($senha) {
     let total = 0;
 
     for (let i = 0; i < senha.length; i++) {
@@ -52,14 +52,14 @@ function contarEspeciais(senha) {
     return total;
 }
 
-function classificarSenha(senha) {
+function classificarSenha($senha) {
     let pontos = 0;
 
-    if (senha.length >= 8) {
+    if ($senha.length >= 8) {
         pontos++;
     }
 
-    if (contarMaiusculas(senha) > 0) {
+    if (contarMaiusculas($senha) > 0) {
         pontos++;
     }
 
@@ -67,11 +67,11 @@ function classificarSenha(senha) {
         pontos++;
     }
 
-    if (contarNumeros(senha) > 0) {
+    if (contarNumeros($senha) > 0) {
         pontos++;
     }
 
-    if (contarEspeciais(senha) > 0) {
+    if (contarEspeciais($senha) > 0) {
         pontos++;
     }
 
@@ -89,7 +89,7 @@ function classificarSenha(senha) {
     }
 }
 
-function analisarSenha(senha) {
+function analisarSenha($senha) {
     let resultado = [];
 
     resultado.push(contarMaiusculas(senha));
