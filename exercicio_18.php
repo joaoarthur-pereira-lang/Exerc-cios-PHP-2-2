@@ -68,28 +68,6 @@ function pesquisarPaciente($agenda, $nome) {
     return $resultado;
 }
 
-function primeiroAtendimento($agenda) {
-    $agenda = ordenarAgenda($agenda);
-    return $agenda[0];
-}
-
-function ultimoAtendimento($agenda) {
-    $agenda = ordenarAgenda($agenda);
-    return $agenda[count($agenda) - 1];
-}
-
-function pesquisarPaciente($agenda, $nome) {
-    $resultado = [];
-
-    foreach ($agenda as $consulta) {
-        if (strtolower($consulta["paciente"]) == strtolower($nome)) {
-            $resultado[] = $consulta;
-        }
-    }
-
-    return $resultado;
-}
-
 function horariosDuplicados($agenda) {
     $horarios = [];
 
