@@ -89,3 +89,18 @@ function classificarSenha(senha) {
     }
 }
 
+function analisarSenha(senha) {
+    let resultado = [];
+
+    resultado.push(contarMaiusculas(senha));
+    resultado.push(contarMinusculas(senha));
+    resultado.push(contarNumeros(senha));
+    resultado.push(contarEspeciais(senha));
+    resultado.push(senha.length);
+    resultado.push(classificarSenha(senha));
+    
+    return resultado;
+}
+
+console.log(analisarSenha("Senha@123"));
+
